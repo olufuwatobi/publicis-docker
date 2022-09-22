@@ -6,14 +6,14 @@ pipeline {
     stages{
         stage('Build Maven'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/olufuwatobi/publicis-devops']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/olufuwatobi/publicis-docker']]])
                 sh 'mvn clean install'
             }
         }
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t olufuwatobi/publicis-devops .'
+                    sh 'docker build -t olufuwatobi/publicis-docker .'
                 }
             }
         }
