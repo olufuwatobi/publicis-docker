@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools{
-        maven 'maven_3_5_0'
+        maven 'mavin'
     }
     stages{
         stage('Build Maven'){
@@ -24,7 +24,7 @@ pipeline {
                    sh 'docker login -u olutobi -p ${dockerhubpwd}'
 
 }
-                   sh 'docker push olufuwatobi/publicis-devops'
+                   sh 'docker push olutobi/publicis-docker'
                 }
             }
         }
